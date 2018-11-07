@@ -13,3 +13,11 @@ jobs:
       - checkout
       - run: echo "A second test"
 
+workflows:
+  version: 2
+  build-test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
